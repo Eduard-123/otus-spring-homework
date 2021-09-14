@@ -23,7 +23,7 @@ public class CsvParserImpl implements CsvParser {
         return result;
     }
 
-    private static List<String> getAnswersFrom(String[] array) {
+    private List<String> getAnswersFrom(String[] array) {
 
         ArrayList<String> answers = new ArrayList<>() {{
             add(array[2]);
