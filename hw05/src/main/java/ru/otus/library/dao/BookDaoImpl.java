@@ -194,7 +194,7 @@ public class BookDaoImpl extends BaseDao implements BookDao {
     }
 
     @Override
-    String getTableName() {
+    public String getTableName() {
         return "books";
     }
 

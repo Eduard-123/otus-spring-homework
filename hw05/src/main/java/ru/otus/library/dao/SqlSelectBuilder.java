@@ -12,33 +12,33 @@ public class SqlSelectBuilder {
     private int limit = 0;
     private String select;
 
-    SqlSelectBuilder(String tableName) {
+    public SqlSelectBuilder(String tableName) {
         this.tableName = tableName;
     }
 
-    SqlSelectBuilder useAlias(String alias) {
+    public SqlSelectBuilder useAlias(String alias) {
         this.alias = alias;
         return this;
     }
 
-    SqlSelectBuilder join(String join) {
+    public SqlSelectBuilder join(String join) {
         joins.add(join);
         return this;
     }
 
-    SqlSelectBuilder useFilterFields(Collection<String> fields) {
+    public SqlSelectBuilder useFilterFields(Collection<String> fields) {
         if (fields.size() > 0) {
             wheres.add(getFilterString(fields));
         }
         return this;
     }
 
-    SqlSelectBuilder useFilterFields(String... fields) {
+    public SqlSelectBuilder useFilterFields(String... fields) {
         useFilterFields(Arrays.asList(fields));
         return this;
     }
 
-    SqlSelectBuilder limit(int value) {
+    public SqlSelectBuilder limit(int value) {
         limit = value;
         return this;
     }
@@ -73,12 +73,12 @@ public class SqlSelectBuilder {
                 .collect(Collectors.joining(" and "));
     }
 
-    SqlSelectBuilder select(String s) {
+    public SqlSelectBuilder select(String s) {
         select = s;
         return this;
     }
 
-    SqlSelectBuilder addWhere(String s) {
+    public SqlSelectBuilder addWhere(String s) {
         wheres.add(s);
         return this;
     }

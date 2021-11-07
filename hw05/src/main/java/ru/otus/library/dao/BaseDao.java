@@ -2,17 +2,17 @@ package ru.otus.library.dao;
 
 public abstract class BaseDao {
 
-    abstract String getTableName();
+    public abstract String getTableName();
 
-    SqlSelectBuilder createSelectBuilder() {
+    public SqlSelectBuilder createSelectBuilder() {
         return new SqlSelectBuilder(getTableName());
     }
 
-    interface ColumnNameTranslator {
+    public interface ColumnNameTranslator {
         String translate(String column);
     }
 
-    static class IdleColumnNameTranslator implements ColumnNameTranslator {
+    public static class IdleColumnNameTranslator implements ColumnNameTranslator {
 
         @Override
         public String translate(String column) {
@@ -20,11 +20,11 @@ public abstract class BaseDao {
         }
     }
 
-    static class PrefixAppendTranslator implements ColumnNameTranslator {
+    public static class PrefixAppendTranslator implements ColumnNameTranslator {
 
         private String prefix;
 
-        PrefixAppendTranslator(String prefix) {
+        public PrefixAppendTranslator(String prefix) {
             this.prefix = prefix;
         }
 
@@ -34,7 +34,7 @@ public abstract class BaseDao {
         }
     }
 
-    static abstract class RowMapper<E> implements org.springframework.jdbc.core.RowMapper<E> {
+    public abstract static class RowMapper<E> implements org.springframework.jdbc.core.RowMapper<E> {
         private ColumnNameTranslator columnNameTranslator;
         RowMapper(ColumnNameTranslator columnNameTranslator) {
             this.columnNameTranslator = columnNameTranslator;
@@ -44,11 +44,11 @@ public abstract class BaseDao {
             this(new IdleColumnNameTranslator());
         }
 
-        ColumnNameTranslator getColumnNameTranslator() {
+        public ColumnNameTranslator getColumnNameTranslator() {
             return columnNameTranslator;
         }
 
-        String getColumnId(String column) {
+        public String getColumnId(String column) {
             return getColumnNameTranslator().translate(column);
         }
     }

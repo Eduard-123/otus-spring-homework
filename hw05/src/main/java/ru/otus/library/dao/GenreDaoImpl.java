@@ -71,7 +71,7 @@ public class GenreDaoImpl extends BaseDao implements GenreDao {
     }
 
     @Override
-    String getTableName() {
+    public String getTableName() {
         return "genres";
     }
 

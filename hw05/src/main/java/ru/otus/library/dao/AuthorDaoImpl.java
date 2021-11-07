@@ -72,7 +72,7 @@ public class AuthorDaoImpl extends BaseDao implements AuthorDao {
     }
 
     @Override
-    String getTableName() {
+    public String getTableName() {
         return "authors";
     }
 
