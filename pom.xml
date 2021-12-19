@@ -6,6 +6,7 @@
     <modules>
         <module>hw01</module>
         <module>hw04</module>
+        <module>hw05</module>
     </modules>
 
     <parent>
@@ -39,9 +40,21 @@
         </dependency>
 
         <dependency>
+
             <groupId>org.springframework.shell</groupId>
             <artifactId>spring-shell-starter</artifactId>
             <version>2.0.1.RELEASE</version>
+
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <version>2.5.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.200</version>
+
         </dependency>
 
         <dependency>
