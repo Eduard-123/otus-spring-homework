@@ -47,14 +47,14 @@ public class MainController {
         return sb.append("\n").toString();
     }
 
-    @ShellMethod("List all genres in ru.otus.library without any parameters.")
+    @ShellMethod("List all genres in library without any parameters.")
     public String genres() {
         StringBuilder sb = new StringBuilder();
         genreDao.getAll().forEach(e -> sb.append("\n").append(e));
         return sb.append("\n").toString();
     }
 
-    @ShellMethod("List all authors in ru.otus.library without any parameters.")
+    @ShellMethod("List all authors in library without any parameters.")
     public String authors() {
         StringBuilder sb = new StringBuilder();
         authorDao.getAll().forEach(e -> sb.append("\n").append(e));
