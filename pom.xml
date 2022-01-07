@@ -8,6 +8,9 @@
         <module>hw04</module>
         <module>hw05</module>
         <module>hw06</module>
+        <module>hw07</module>
+        <module>hw08</module>
+        <module>hw09</module>
     </modules>
 
     <parent>
@@ -22,49 +25,6 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>5.3.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.shell</groupId>
-            <artifactId>spring-shell-starter</artifactId>
-            <version>2.0.1.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-            <version>2.5.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.200</version>
-
-        </dependency>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
@@ -76,7 +36,6 @@
         <assertj-core.version>3.13.2</assertj-core.version>
         <spring-shell.version>2.0.1.RELEASE</spring-shell.version>
     </properties>
-
 
     <dependencyManagement>
         <dependencies>
@@ -122,22 +81,12 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-
-            <version>1.18.12</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.sf.opencsv</groupId>
-            <artifactId>opencsv</artifactId>
-            <version>2.3</version>
-
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-
-        </dependency>
-    </dependencies>
+ <dependencies>
+     <dependency>
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <version>${lombok.version}</version>
+         <scope>provided</scope>
+     </dependency>
+ </dependencies>
 </project>
