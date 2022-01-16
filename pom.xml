@@ -22,6 +22,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -64,9 +65,68 @@
 
         </dependency>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <spring.version>5.3.5</spring.version>
+        <lombok.version>1.18.20</lombok.version>
+        <junit.jupiter.version>5.3.2</junit.jupiter.version>
+        <mockito-core.version>3.1.0</mockito-core.version>
+        <assertj-core.version>3.13.2</assertj-core.version>
+        <spring-shell.version>2.0.1.RELEASE</spring-shell.version>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.shell</groupId>
+                <artifactId>spring-shell-starter</artifactId>
+                <version>${spring-shell.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-params</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj-core.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito-core.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+
             <version>1.18.12</version>
         </dependency>
 
@@ -74,7 +134,10 @@
             <groupId>net.sf.opencsv</groupId>
             <artifactId>opencsv</artifactId>
             <version>2.3</version>
+
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+
         </dependency>
     </dependencies>
-
 </project>
