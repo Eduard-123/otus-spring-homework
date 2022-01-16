@@ -7,7 +7,11 @@
         <module>hw01</module>
         <module>hw04</module>
         <module>hw05</module>
+
+        <module>hw12</module>
+
         <module>hw06</module>
+
     </modules>
 
     <parent>
