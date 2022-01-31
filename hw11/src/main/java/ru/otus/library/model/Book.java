@@ -23,11 +23,14 @@ public class Book {
     @DBRef
     private Genre genre;
 
-    public Book(String id, String name, Author author, Genre genre) {
+    private Comment comment;
+
+    public Book(String id, String name, Author author, Genre genre, Comment comment) {
         this.id = id;
         this.name = name;
         this.author = author;
         this.genre = genre;
+        this.comment = comment;
     }
 
     public Book(String name, Author author, Genre genre) {

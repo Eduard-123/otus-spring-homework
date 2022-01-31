@@ -11,6 +11,7 @@ import reactor.core.publisher.Flux;
 import ru.otus.library.dto.BookDto;
 import ru.otus.library.model.Author;
 import ru.otus.library.model.Book;
+import ru.otus.library.model.Comment;
 import ru.otus.library.model.Genre;
 import ru.otus.library.rest.BookRestController;
 import ru.otus.library.service.BookService;
@@ -29,8 +30,8 @@ public class BookRestControllerTest {
     @Test
     public void shouldReturnBooksWhenGetAll() {
         when(bookService.getAll()).thenReturn(Flux.just(BookDto.fromBook(new Book("1", "1",
-                        new Author("1", "1"), new Genre("1", "1"))),
-                BookDto.fromBook(new Book("2", "2", new Author("1", "1"), new Genre("1", "1")))));
+                        new Author("1", "1"), new Genre("1", "1"),new Comment("1","1"))),
+                BookDto.fromBook(new Book("2", "2", new Author("1", "1"), new Genre("1", "1"), new Comment("2","2")))));
 
         webClient.get()
                 .uri("/api/book")

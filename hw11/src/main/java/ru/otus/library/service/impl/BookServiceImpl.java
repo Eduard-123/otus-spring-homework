@@ -49,22 +49,24 @@ public class BookServiceImpl implements BookService {
     @Transactional
     @Override
     public Mono<Void> delete(Book book) {
-        return commentRepository.deleteAll(commentRepository.findByBook(book))
+        return commentRepository.deleteAll(commentRepository.findById(book.getComment().getId()))
                 .zipWith(bookRepository.deleteById(book.getId())).then();
     }
 
     @Transactional(readOnly = true)
     @Override
-    public Flux<CommentDto> getComments(Book book) {
-        return commentRepository.findByBook(book).map(CommentDto::fromComment);
+    public Mono<CommentDto> getComments(Book book) {
+        return commentRepository.findById(book.getComment().getId()).map(CommentDto::fromComment);
     }
 
     @Transactional
     @Override
     public Mono<CommentDto> addComment(Book book, String text) {
         Comment comment = new Comment();
-        comment.setValue(text);
-        comment.setBook(book);
-        return commentRepository.save(comment).map(CommentDto::fromComment);
+        comment.setCommentVal(text);
+        Comment savedComment = commentRepository.save(comment).block();
+        book.setComment(savedComment);
+        bookRepository.save(book);
+        return commentRepository.findById(savedComment.getId()).map(CommentDto::fromComment);
     }
 }

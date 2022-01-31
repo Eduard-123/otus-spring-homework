@@ -1,22 +1,17 @@
 package ru.otus.library.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comment {
     @Id
     private String id;
 
-    private String value;
+    private String commentVal;
 
-    private Book book;
 }

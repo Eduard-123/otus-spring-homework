@@ -15,7 +15,7 @@ public interface BookService {
 
     Mono<Void> delete(Book book);
 
-    Flux<CommentDto> getComments(Book book);
+    Mono<CommentDto> getComments(Book book);
 
     Mono<CommentDto> addComment(Book book, String text);
 }

@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import ru.otus.library.converter.BookConverter;
 import ru.otus.library.dto.BookDto;
 import ru.otus.library.service.BookService;
 
@@ -32,7 +33,7 @@ public class BookRestController {
 
     @PostMapping("/api/book")
     public Mono<ResponseEntity<BookDto>> saveBook(@RequestBody BookDto data) {
-        return bookService.save(data.toBook())
+        return bookService.save(BookConverter.convert(data))
             .flatMap(bookDto -> Mono.fromSupplier(() -> ResponseEntity.status(HttpStatus.CREATED).body(bookDto)))
             .doOnError(error -> Mono.fromSupplier(() -> ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .contentType(MediaType.TEXT_HTML)

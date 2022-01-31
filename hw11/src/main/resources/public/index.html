@@ -23,8 +23,8 @@
                     books.forEach((book, idx) => {
                         rows += '<tr>' + '<td>' + book.id + '</td>'
                          + '<td>' + book.title + '</td>'
-                          + '<td>' + book.authorName + '</td>'
-                          + '<td>' + book.genreName + '</td>'
+                          + '<td>' + book.author.fullName + '</td>'
+                          + '<td>' + book.genre.name + '</td>'
                           + '<td>' + '<a href=\"bookEdit.html?id=' + book.id + '\">Edit</a>' + '</td>' + '</tr>';
                     });
                     tableBody.innerHTML = rows;

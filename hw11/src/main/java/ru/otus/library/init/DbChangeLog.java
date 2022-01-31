@@ -6,6 +6,7 @@ import com.github.cloudyrock.mongock.driver.mongodb.springdata.v3.decorator.impl
 import com.mongodb.client.MongoDatabase;
 import ru.otus.library.model.Author;
 import ru.otus.library.model.Book;
+import ru.otus.library.model.Comment;
 import ru.otus.library.model.Genre;
 
 import java.util.ArrayList;
@@ -36,10 +37,10 @@ public class DbChangeLog {
 
     @ChangeSet(order = "004", id = "addBooks", author = "mongock")
     public void addBooks(MongockTemplate template) {
-        template.save(new Book("book-1", "Hello Python", authors.get(0), genres.get(1)));
-        template.save(new Book("book-2", "Hello Java", authors.get(1), genres.get(1)));
-        template.save(new Book("book-3", "Bye Python", authors.get(1), genres.get(0)));
-        template.save(new Book("book-4", "Hello Kotlin", authors.get(0), genres.get(0)));
+        template.save(new Book("book-1", "Hello Python", authors.get(0), genres.get(1),new Comment()));
+        template.save(new Book("book-2", "Hello Java", authors.get(1), genres.get(1),new Comment()));
+        template.save(new Book("book-3", "Bye Python", authors.get(1), genres.get(0),new Comment()));
+        template.save(new Book("book-4", "Hello Kotlin", authors.get(0), genres.get(0),new Comment()));
     }
 
 }
