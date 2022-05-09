@@ -11,15 +11,14 @@
         <module>hw11</module>
 
         <module>hw06</module>
-        <module>hw07</module>
-        <module>hw08</module>
         <module>hw09</module>
+        <module>hw18</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.4.4</version>
+        <version>2.2.4.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -42,11 +41,7 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
+
             <dependency>
                 <groupId>org.springframework.shell</groupId>
                 <artifactId>spring-shell-starter</artifactId>
