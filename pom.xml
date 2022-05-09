@@ -7,7 +7,13 @@
         <module>hw01</module>
         <module>hw04</module>
         <module>hw05</module>
+
         <module>hw11</module>
+
+        <module>hw06</module>
+        <module>hw07</module>
+        <module>hw08</module>
+        <module>hw09</module>
     </modules>
 
     <parent>
@@ -78,12 +84,12 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+ <dependencies>
+     <dependency>
+         <groupId>org.projectlombok</groupId>
+         <artifactId>lombok</artifactId>
+         <version>${lombok.version}</version>
+         <scope>provided</scope>
+     </dependency>
+ </dependencies>
 </project>
